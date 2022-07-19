@@ -18,13 +18,22 @@ const Part1 = (props) => {
   )
 }
 
+const Part2 = (props) => {
+
+  return (
+    <div>
+      <p>
+        {props.part2} {props.exercises2}
+      </p>
+    </div>
+  )
+}
+
 const Content = (props) => {
   return (
     <div>
       <Part1 part1={props.part1} exercises1={props.exercises1} />
-      <p>
-        {props.part2} {props.exercises2}
-      </p>
+      <Part2 part2={props.part2} exercises2={props.exercises2} />
       <p>
         {props.part3} {props.exercises3}
       </p>

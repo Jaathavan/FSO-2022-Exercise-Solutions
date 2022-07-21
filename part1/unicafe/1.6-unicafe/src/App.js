@@ -1,7 +1,9 @@
 import { useState } from 'react'
 
-const Button = () => {
-  <button></button>
+const Button = ({ handleClick, text }) => {
+  <button onClick={handleClick}>
+    {text}
+  </button>
 }
 
 const Stats = () => {
@@ -19,20 +21,24 @@ const App = () => {
   const [bad, setBad] = useState(0)
 
   const handleGoodClick = () => {
-    setGood(good++);
+    setGood(good + 1)
   }
 
   const handleNeutralClick = () => {
-    setNeutral(neutral++);
+    setNeutral(neutral + 1)
   }
 
   const handleBadClick = () => {
-    setBad(bad++);
+    setBad(bad + 1)
   }
 
   return (
     <div>
       <h1>Give Feedback</h1>
+
+      <Button handleClick={handleGoodClick} text="Good" />
+      <Button handleClick={handleNeutralClick} text="Neutral" />
+      <Button handleClick={handleBadClick} text="Nad" />
 
       <h1>Statistics</h1>
     </div>

@@ -10,29 +10,6 @@ const Button = ({ handleClick, text }) => {
   )
 }
 
-const MostVotes = ({ setMostVotes, anecdotes, mostVotes, votes }) => {
-  for (let i=0; i < 7; i++) {
-    if (votes[i] > votes[mostVotes]) {
-      setMostVotes(i)
-      console.log(mostVotes)
-      return (
-        <div>
-            <h1>Anecdote with most votes</h1>
-            {anecdotes[mostVotes]}
-            <div>has {votes[mostVotes]} votes</div>
-        </div>
-      )
-    }      
-  }
-  return (
-  <div>
-      <h1>Anecdote with most votes</h1>
-      {anecdotes[mostVotes]}
-      <div>has {votes[mostVotes]} votes</div>
-  </div>
-  )
-}
-
 
 const App = () => {
   const anecdotes = [
@@ -65,6 +42,9 @@ const App = () => {
   }
 
   const vote = () => {
+    if ((votes[selected] + 1) > votes[mostVotes]) {
+      setMostVotes(selected)
+    }
     setVotes({ ...votes, [selected]: votes[selected] + 1})
   }
 
@@ -76,9 +56,11 @@ const App = () => {
       <Button handleClick={changeAnecdote} text="Next Anecdote" />
       <Button handleClick={vote} text="Vote" />
 
-      <MostVotes anecdotes={anecdotes} mostVotes={mostVotes} votes={votes} setMostVotes={setMostVotes}/>
+      <h1>Anecdote with most votes</h1>
+      {anecdotes[mostVotes]}
+      <div>has {votes[mostVotes]} votes</div>
     </div>
   )
-}
+} 
 
 export default App

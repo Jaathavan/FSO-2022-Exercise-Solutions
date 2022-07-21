@@ -1,9 +1,13 @@
 import { useState } from 'react'
 
 const Button = ({ handleClick, text }) => {
-  <button onClick={handleClick}>
-    {text}
-  </button>
+  return (
+  <div>
+    <button onClick={handleClick}>
+      {text}
+    </button>
+  </div>
+  )
 }
 
 const Stats = () => {

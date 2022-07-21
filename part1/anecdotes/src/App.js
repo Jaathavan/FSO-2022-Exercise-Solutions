@@ -21,10 +21,10 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.'
   ]
    
-  const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(Math.floor(Math.random() * anecdotes.length))
 
   const changeAnecdote = () => {
-    let randInt = Math.random(anecdotes.length)
+    let randInt = Math.floor(Math.random() * anecdotes.length)
     console.log(randInt);
     setSelected(randInt)
   }

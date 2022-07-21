@@ -1,5 +1,15 @@
 import { useState } from 'react'
 
+const Button = ({ handleClick, text }) => {
+  return (
+  <div>
+    <button onClick={handleClick}>
+      {text}
+    </button>
+  </div>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',

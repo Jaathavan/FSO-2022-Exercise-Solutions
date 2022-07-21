@@ -16,6 +16,9 @@ const Stats = ({ good, neutral, bad }) => {
     <div>good: {good}</div>
     <div>neutral: {neutral}</div>
     <div>bad: {bad}</div>
+    <div>all: </div>
+    <div>average: </div>
+    <div>positive: </div>
   </div>
   )
 }

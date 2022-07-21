@@ -10,7 +10,20 @@ const Button = ({ handleClick, text }) => {
   )
 }
 
-const MostVotes = ({ anecdotes, mostVotes, votes }) => {
+const MostVotes = ({ setMostVotes, anecdotes, mostVotes, votes }) => {
+  for (let i=0; i < 7; i++) {
+    if (votes[i] > votes[mostVotes]) {
+      setMostVotes(i)
+      console.log(mostVotes)
+      return (
+        <div>
+            <h1>Anecdote with most votes</h1>
+            {anecdotes[mostVotes]}
+            <div>has {votes[mostVotes]} votes</div>
+        </div>
+      )
+    }      
+  }
   return (
   <div>
       <h1>Anecdote with most votes</h1>
@@ -35,13 +48,13 @@ const App = () => {
   const [selected, setSelected] = useState(Math.floor(Math.random() * 7))
 
   const [votes, setVotes] = useState({
-    0: 0,
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0
+    0: 1,
+    1: 3,
+    2: 12,
+    3: 7,
+    4: 9,
+    5: 11,
+    6: 5
   })
 
   const [mostVotes, setMostVotes] = useState(2)
@@ -53,12 +66,6 @@ const App = () => {
 
   const vote = () => {
     setVotes({ ...votes, [selected]: votes[selected] + 1})
-    for (let i=0; i < 7; i++) {
-      if (votes[i] > votes[mostVotes]) {
-        setMostVotes(i)
-        console.log(mostVotes)
-      }      
-    }
   }
 
   return (
@@ -69,7 +76,7 @@ const App = () => {
       <Button handleClick={changeAnecdote} text="Next Anecdote" />
       <Button handleClick={vote} text="Vote" />
 
-      <MostVotes anecdotes={anecdotes} mostVotes={mostVotes} votes={votes} />
+      <MostVotes anecdotes={anecdotes} mostVotes={mostVotes} votes={votes} setMostVotes={setMostVotes}/>
     </div>
   )
 }

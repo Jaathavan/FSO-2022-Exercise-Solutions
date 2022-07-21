@@ -11,7 +11,9 @@ const Button = ({ handleClick, text }) => {
 }
 
 const StatisticLine = ({ text, value }) => {
-  
+  return (
+    <div>{text}: {value}</div>
+  )
 }
 
 const Statistics = ({ good, neutral, bad, all }) => {

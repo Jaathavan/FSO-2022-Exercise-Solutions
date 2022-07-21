@@ -39,13 +39,14 @@ const App = () => {
   }
 
   const vote = () => {
-    setVotes(votes + 1)
+    setVotes({ ...votes, [selected]: votes[selected] + 1})
+    console.log(votes[selected])
   }
 
   return (
     <div>
       {anecdotes[selected]}
-      <div>has  votes</div>
+      <div>has {votes[selected]} votes</div>
       <Button handleClick={changeAnecdote} text="Next Anecdote" />
       <Button handleClick={vote} text="Vote" />
     </div>

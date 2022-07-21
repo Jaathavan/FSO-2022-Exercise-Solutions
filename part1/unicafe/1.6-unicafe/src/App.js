@@ -10,6 +10,10 @@ const Button = ({ handleClick, text }) => {
   )
 }
 
+const StatisticLine = ({ text, value }) => {
+  
+}
+
 const Statistics = ({ good, neutral, bad, all }) => {
   if (all > 0) {
     return (

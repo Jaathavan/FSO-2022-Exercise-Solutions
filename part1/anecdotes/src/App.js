@@ -40,7 +40,6 @@ const App = () => {
 
   const vote = () => {
     setVotes({ ...votes, [selected]: votes[selected] + 1})
-    console.log(votes[selected])
   }
 
   return (

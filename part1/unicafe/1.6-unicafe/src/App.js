@@ -10,12 +10,14 @@ const Button = ({ handleClick, text }) => {
   )
 }
 
-const Stats = () => {
+const Stats = ({ good, neutral, bad }) => {
+  return (
   <div>
-    <div>good: </div>
-    <div>neutral: </div>
-    <div>bad: </div>
+    <div>good: {good}</div>
+    <div>neutral: {neutral}</div>
+    <div>bad: {bad}</div>
   </div>
+  )
 }
 
 const App = () => {
@@ -39,12 +41,12 @@ const App = () => {
   return (
     <div>
       <h1>Give Feedback</h1>
-
       <Button handleClick={handleGoodClick} text="Good" />
       <Button handleClick={handleNeutralClick} text="Neutral" />
-      <Button handleClick={handleBadClick} text="Nad" />
+      <Button handleClick={handleBadClick} text="Bad" />
 
       <h1>Statistics</h1>
+      <Stats good={good} neutral={neutral} bad={bad}/>
     </div>
   )
 }

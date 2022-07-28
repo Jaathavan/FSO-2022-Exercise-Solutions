@@ -63,9 +63,13 @@ const Course = ( {courses} ) => {
 
   return (
     <div>
-        <Header course={courses[0].name} />
-        <Content parts={courses[0].parts} />
-        <Total parts={courses[0].parts} />
+        {courses.map(course =>
+          <div>
+            <Header course={course.name} />
+            <Content parts={course.parts} />
+            <Total parts={course.parts} />
+          </div>
+        )}
     </div>
   )
 }

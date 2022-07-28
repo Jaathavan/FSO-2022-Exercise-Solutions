@@ -7,45 +7,45 @@ const Header = ( {course} ) => {
   )
 }
 
-const Part1 = (props) => {
+const Part1 = ( {part1, exercises1} ) => {
 
   return (
     <div>
       <p>
-        {props.part1} {props.exercises1}
+        {part1} {exercises1}
       </p>
     </div>
   )
 }
 
-const Part2 = (props) => {
+const Part2 = ( {part2, exercises2} ) => {
 
   return (
     <div>
       <p>
-        {props.part2} {props.exercises2}
+        {part2} {exercises2}
       </p>
     </div>
   )
 }
 
-const Part3 = (props) => {
+const Part3 = ( {part3, exercises3} ) => {
 
   return (
     <div>
       <p>
-        {props.part3} {props.exercises3}
+        {part3} {exercises3}
       </p>
     </div>
   )
 }
 
-const Content = (props) => {
+const Content = ( {parts} ) => {
   return (
     <div>
-      <Part1 part1={props.parts[0].name} exercises1={props.parts[0].exercises} />
-      <Part2 part2={props.parts[1].name} exercises2={props.parts[1].exercises} />
-      <Part3 part3={props.parts[2].name} exercises3={props.parts[2].exercises} />
+      <Part1 part1={parts[0].name} exercises1={parts[0].exercises} />
+      <Part2 part2={parts[1].name} exercises2={parts[1].exercises} />
+      <Part3 part3={parts[2].name} exercises3={parts[2].exercises} />
     </div>
   )
 }

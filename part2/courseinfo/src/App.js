@@ -2,7 +2,7 @@ const Header = ( {course} ) => {
 
   return (
     <div>
-      <h1>{course}</h1>
+      <h2>{course}</h2>
     </div>
   )
 }
@@ -116,7 +116,12 @@ const App = () => {
     }
   ]
 
-  return <Course course={courses[0]} />
+  return (
+  <div>
+    <h1>Web Development Curriculum</h1>
+    <Course course={courses[0]} />
+  </div>
+  )
 }
 
 export default App

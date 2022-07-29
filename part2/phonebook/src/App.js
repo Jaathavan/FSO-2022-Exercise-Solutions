@@ -39,10 +39,10 @@ const App = () => {
       <h2>Phonebook</h2>
       <form onSubmit={addDetails}>
         <div>
-          name: <input value={newName} onChange={handleNameChange} />
+          name: <input value={newName} onChange={handleNameChange} required/>
         </div>
         <div>
-          number: <input value={newNumber} onChange={handleNumberChange} />
+          number: <input value={newNumber} onChange={handleNumberChange} type="number" required />
         </div>
         <div>
           <button type="submit">add</button>

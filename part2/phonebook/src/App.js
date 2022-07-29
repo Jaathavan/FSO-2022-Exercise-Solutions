@@ -42,6 +42,10 @@ const App = () => {
     }
   }
 
+  const filteredPersons = newFilter.length === 0
+    ? persons
+    : persons.filter(person => person.name.includes(newFilter))
+
   return (
     <div>
       <h2>Phonebook</h2>
@@ -61,7 +65,7 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      {persons.map(person => 
+      {filteredPersons.map(person => 
         <div key={person.name}>{person.name}: {person.number}</div>
       )}
     </div>

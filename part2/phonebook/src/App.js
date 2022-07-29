@@ -47,16 +47,34 @@ const App = () => {
 
   const filteredPersons = newFilter.length === 0
     ? persons
-    : persons.filter(person => person.name.includes(newFilter.toUpperCase()) || person.name.includes(newFilter.toLowerCase()) || person.number.includes(newFilter.toString()))
+    : persons.filter(person => 
+      person.name.includes(newFilter.toUpperCase()) 
+      || person.name.includes(newFilter.toLowerCase()) 
+      || person.number.includes(newFilter.toString())
+      )
 
   return (
     <div>
       <h2>Phonebook</h2>
-      <Filter newFilter={newFilter} handleFilterChange={handleFilterChange} />
+
+      <Filter 
+        newFilter={newFilter} 
+        handleFilterChange={handleFilterChange} 
+      />
+      
       <h3>Add a New</h3>
-      <PersonForm addDetails={addDetails} newName={newName} handleNameChange={handleNameChange} newNumber={newNumber} handleNumberChange={handleNumberChange}/>
+
+      <PersonForm 
+        addDetails={addDetails} 
+        newName={newName} 
+        handleNameChange={handleNameChange} 
+        newNumber={newNumber} 
+        handleNumberChange={handleNumberChange}
+      />
+      
       <h3>Numbers</h3>
-      <Person filteredPersons={filteredPersons}/>
+      
+      <Person filteredPersons={filteredPersons} />
     </div>
   )
 }

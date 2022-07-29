@@ -1,8 +1,8 @@
 const Filter = ( {newFilter, handleFilterChange} ) => {
-    return ( 
+    return (
         <div>
             filter shown with <input value={newFilter} onChange={handleFilterChange}/>
-      </div>
+        </div>
     )
 }
 

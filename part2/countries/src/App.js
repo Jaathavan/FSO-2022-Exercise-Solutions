@@ -13,9 +13,15 @@ const App = () => {
       })
   }, [])
 
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value)
+  }
+
+  const filteredCountries = countries.filter(country => country.name.common.includes(filter.toUpperCase()) || country.name.common.includes(filter.toLowerCase()))
+
   return (
     <div>
-      <div>Find Countries: <input></input></div>
+      <div>Find Countries: <input value={filter} onChange={handleFilterChange}></input></div>
       
     </div>
   );

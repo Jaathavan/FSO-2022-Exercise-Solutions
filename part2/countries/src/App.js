@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import CountryInfo from "./components/CountryInfo";
+
 
 const App = () => {
   const [countries, setCountries] = useState([])
@@ -22,7 +24,8 @@ const App = () => {
   )
 
   const displayCountries = filteredCountries.length > 10 
-  ? "Too many, specify another filter"
+  ? "Too many matches, specify another filter"
+  : filteredCountries.length === 1 ? <CountryInfo country={filteredCountries} />
   : filteredCountries.map(country => <div key={country.name.common}>{country.name.common}</div>)
 
   return (

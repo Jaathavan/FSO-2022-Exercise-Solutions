@@ -17,7 +17,10 @@ const App = () => {
     setFilter(event.target.value)
   }
 
-  const filteredCountries = countries.filter(country => country.name.common.includes(filter) )
+  const filteredCountries = countries.filter(country => 
+    country.name.common.toLowerCase().includes(filter.toLowerCase()) 
+  )
+
   const displayCountries = filteredCountries.length > 10 
   ? "Too many, specify another filter"
   : filteredCountries.map(country => <div key={country.name.common}>{country.name.common}</div>)

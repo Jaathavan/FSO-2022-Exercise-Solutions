@@ -5,7 +5,7 @@ const CountryInfo = ( { country } ) => {
         <div>
             <h2>{country[0].name.common}</h2>
             <div>Capital: {country[0].capital}</div>
-            <div>Area: {country[0].area}</div>
+            <div>Area: {country[0].area} km²</div>
             
             <h3>Languages: </h3>
             {languages.map(l => <li key={l}>{l}</li>)}

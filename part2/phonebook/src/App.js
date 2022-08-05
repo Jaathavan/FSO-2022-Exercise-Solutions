@@ -31,8 +31,8 @@ const App = () => {
     setNewFilter(event.target.value)
   }
 
-  const deleteNumber = (id) => {
-    if (window.confirm("Delete ???")) {
+  const deleteNumber = (id, name) => {
+    if (window.confirm(`Delete ${name} ?`)) {
       personService.deleteNumber(id)
       setPersons(persons.filter(person => person.id !== id))
     }
@@ -95,7 +95,7 @@ const App = () => {
         key={person.name} 
         name={person.name} 
         number={person.number}
-        deleteNumber = {() => deleteNumber(person.id)}
+        deleteNumber = {() => deleteNumber(person.id, person.name)}
       />)
       }
     </div>

@@ -34,12 +34,8 @@ const App = () => {
   const deleteNumber = (id) => {
     if (window.confirm("Delete ???")) {
       personService.deleteNumber(id)
-        
-      personService
-      .getAll()
-        .then(initialPersons => {
-          setPersons(initialPersons)
-        })
+      
+      setPersons(persons.filter(person => person.id !== id))
     }
   }
 

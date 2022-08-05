@@ -44,10 +44,10 @@ const App = () => {
       alert(`${newNumber} is already added to phonebook`)
     }
     else {
-      axios
-        .post('http://localhost:3001/persons', nameObject)
-        .then(response => {
-          setPersons(persons.concat(nameObject))
+      personService
+        .create(nameObject)
+        .then(returnedPerson => {
+          setPersons(persons.concat(returnedPerson))
           setNewName('')
           setNewNumber('')
         })

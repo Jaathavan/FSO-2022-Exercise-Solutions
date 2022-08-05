@@ -11,7 +11,7 @@ const CountryInfo = ( { country } ) => {
             
             <h2>Languages: </h2>
             {languages.map(l => <li key={l}>{l}</li>)}
-            <br></br>
+            <br />
             <img src={country[0].flags.svg} alt="country flag" />
             <Weather city={country[0].capital} />
         </div>

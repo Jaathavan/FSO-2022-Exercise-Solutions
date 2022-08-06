@@ -4,12 +4,14 @@ import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Person from './components/Persons'
 import personService from './services/persons'
+import Notification from './components/Notification'
 
 const App = () => {
   const [persons, setPersons] = useState([]) 
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [newFilter, setNewFilter] = useState('')
+  const [notification, setNotification] = useState(null)
 
   useEffect(() => {
     personService
@@ -35,6 +37,10 @@ const App = () => {
     if (window.confirm(`Delete ${name} ?`)) {
       personService.deleteNumber(id)
       setPersons(persons.filter(person => person.id !== id))
+      setNotification(`Deleted ${name}`)
+        setTimeout(() => {
+          setNotification(null)
+        }, 5000)
     }
   }
 
@@ -60,6 +66,10 @@ const App = () => {
       if(window.confirm(`${newName} is already added to phonebook, replace older number with new number?`)) {
         let person = persons.find(p => p.name === newName)
         updateNumber(person.id)
+        setNotification(`Updated Number for ${person.name}`)
+        setTimeout(() => {
+          setNotification(null)
+        }, 5000)
       }
     }
     else {
@@ -69,6 +79,10 @@ const App = () => {
           setPersons(persons.concat(returnedPerson))
           setNewName('')
           setNewNumber('')
+          setNotification(`Added ${returnedPerson.name}`)
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000)
         })
     }
   }
@@ -83,6 +97,8 @@ const App = () => {
 
   return (
     <div>
+      <Notification message={notification} />
+
       <h2>Phonebook</h2>
 
       <Filter 

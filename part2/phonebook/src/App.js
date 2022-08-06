@@ -40,10 +40,10 @@ const App = () => {
       setPersons(persons.filter(person => person.id !== id))
       setNotification(`Deleted ${name}`)
       setNotificationType("success")
-        setTimeout(() => {
-          setNotification(null)
-          setNotificationType(null)
-        }, 5000)
+      setTimeout(() => {
+        setNotification(null)
+        setNotificationType(null)
+      }, 5000)
     }
   }
 
@@ -56,6 +56,14 @@ const App = () => {
         setPersons(persons.map(person => person.id !== id ? person : returnedPerson))
         setNewName('')
         setNewNumber('')
+      })
+      .catch(error => {
+        setNotification(`Information of ${changedPerson.name} has already been removed from the server`)
+        setNotificationType("error")
+        setTimeout(() => {
+          setNotification(null)
+          setNotificationType(null)
+        }, 5000)
       })
   }
 

@@ -12,6 +12,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
   const [newFilter, setNewFilter] = useState('')
   const [notification, setNotification] = useState(null)
+  const [notificationType, setNotificationType] = useState(null)
 
   useEffect(() => {
     personService
@@ -38,8 +39,10 @@ const App = () => {
       personService.deleteNumber(id)
       setPersons(persons.filter(person => person.id !== id))
       setNotification(`Deleted ${name}`)
+      setNotificationType("success")
         setTimeout(() => {
           setNotification(null)
+          setNotificationType(null)
         }, 5000)
     }
   }
@@ -67,8 +70,10 @@ const App = () => {
         let person = persons.find(p => p.name === newName)
         updateNumber(person.id)
         setNotification(`Updated Number for ${person.name}`)
+        setNotificationType("success")
         setTimeout(() => {
           setNotification(null)
+          setNotificationType(null)
         }, 5000)
       }
     }
@@ -80,8 +85,10 @@ const App = () => {
           setNewName('')
           setNewNumber('')
           setNotification(`Added ${returnedPerson.name}`)
+          setNotificationType("success")
           setTimeout(() => {
             setNotification(null)
+            setNotificationType(null)
           }, 5000)
         })
     }
@@ -97,7 +104,7 @@ const App = () => {
 
   return (
     <div>
-      <Notification message={notification} />
+      <Notification message={notification} type={notificationType}/>
 
       <h2>Phonebook</h2>
 

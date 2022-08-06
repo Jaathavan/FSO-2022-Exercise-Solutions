@@ -64,6 +64,7 @@ const App = () => {
           setNotification(null)
           setNotificationType(null)
         }, 5000)
+        setPersons(persons.filter(person => person.id !== id))
       })
   }
 

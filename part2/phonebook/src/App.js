@@ -106,9 +106,7 @@ const App = () => {
   const filteredPersons = newFilter.length === 0
     ? persons
     : persons.filter(person => 
-      person.name.includes(newFilter.toUpperCase()) 
-      || person.name.includes(newFilter.toLowerCase()) 
-      || person.number.includes(newFilter.toString())
+      person.name.toLowerCase().includes(newFilter.toLowerCase()) 
       )
 
   return (
